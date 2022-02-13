@@ -1,24 +1,31 @@
 import React from 'react'
-import { useDispatch } from 'react-redux';
-import { removeFromCart } from './features/CartSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { decreaseCart, getTotalPrice, increaseCart, removeFromCart ,updateQuantity} from './features/CartSlice';
 import productProvider from './products';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import 'react-toastify/dist/ReactToastify.css';
 
 
-const CartItem = ({cartItem}) => {
+const CartItem = ({cartItem,totalPrice}) => {
     const product=productProvider.find(p=>p.id === cartItem.productID);
     const dispatch=useDispatch();
+
+    console.log(cartItem);
+   
+    
     return (
         <div className="cartino">
             <div className="cart-left">
                 <div className="img-container"> <img src={`./${product.img}.png`} alt="" /></div>
-               
-                <div className="inner">
+                  <button onClick={()=>dispatch(increaseCart(cartItem))}>-</button>
+                  <div className="inner">
                     <h4>{cartItem.quantity} X {product.name}</h4>
-                    <p>${product.price * cartItem.quantity}</p>
+                    <p>${cartItem.price * cartItem.quantity}</p>
                 </div>
+              
+                <button onClick={()=>dispatch(decreaseCart(cartItem))}>+</button>
+
                 <div className="cartItemRemoveButtonContainer"
                 onClick={()=>dispatch(removeFromCart(cartItem))}
             >
@@ -26,7 +33,8 @@ const CartItem = ({cartItem}) => {
                      <DeleteIcon className="delete" />
                 </span>
 
-            </div>
+            </div> 
+
             </div>
         </div>
     )
