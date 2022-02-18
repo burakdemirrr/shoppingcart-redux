@@ -44,6 +44,9 @@ export const slice = createSlice({
             else if (state.cartItems[itemIndex].quantity === 1) {
                 state.cartItems = state.cartItems.filter(cartItem => cartItem.id !== state.cartItems[itemIndex].id);
             }
+        },
+        resetCart:(state)=>{
+            state.cartItems=[];
         }
     }
 })
@@ -57,5 +60,5 @@ export const getTotalPrice = state => {
 
 
 
-export const { addItemToCart, removeFromCart, decreaseCart, increaseCart } = slice.actions;
+export const { addItemToCart, removeFromCart, decreaseCart, increaseCart,resetCart } = slice.actions;
 export default slice.reducer;

@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
+import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux'
 import CartItem from './CartItem';
-import { getCartItems, getTotalPrice } from './features/CartSlice';
+import { getCartItems, getTotalPrice, resetCart } from './features/CartSlice';
 
 const Cart = () => {
 
     const cartItems=useSelector(getCartItems);
     let totalPrice=useSelector(getTotalPrice);
+    const dispatch=useDispatch();
 
     
     console.log(totalPrice+ 122);
@@ -19,7 +21,7 @@ const Cart = () => {
             
             <div className="total">
                 <p>Total : {totalPrice}</p>
-                <button >Pay Now!</button>
+                <button onClick={()=>dispatch(resetCart())}>Pay Now!</button>
             </div>
         </div>
     )
