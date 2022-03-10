@@ -12,6 +12,8 @@ export const slice = createSlice({
 
             state.cartItems.push({
                 id: pseudoID,
+                name:action.payload.product.name,
+                img:action.payload.product.img,
                 productID: action.payload.product.id,
                 quantity: action.payload.quantity,
                 price: action.payload.product.price,

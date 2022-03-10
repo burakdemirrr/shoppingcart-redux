@@ -87,7 +87,11 @@ img{
   height:25px;
   border-radius:12px;
 }
-
+.description .title{
+  cursor: pointer;
+  text-decoration: none;
+  color:#803140;
+}
 
 .cart{
   min-height: 50vh;
@@ -175,4 +179,38 @@ img{
   .total p{
     font-size: 25px;
   }
+}
+.text_container .btn{
+  margin-top:11px;
+  width:100%;
+  background:#ff4d6d;
+  color:white;
+  cursor:pointer;
+  border:0;
+  height:25px;
+  border-radius:12px;
+}
+.se{
+  display: flex;
+  align-items: center;
+  
+  justify-content: center;
+}
+
+.se img{
+  width:500px;
+  margin-right: 150px;
+  margin-top: 220px;
+}
+.text_container{
+  margin-top: 120px;
+  width: 250px;
+  height:250px;
+  background-color:rgba(190, 159, 159, 0.397);
+  padding:50px;
+  border-radius: 15px;
+}
+.text_container .quantitybutton{
+  margin:0 auto;
+  margin-top:100px;
 }

@@ -7,20 +7,18 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 
-const CartItem = ({cartItem,totalPrice}) => {
-    const product=productProvider.find(p=>p.id === cartItem.productID);
+const CartItem = ({cartItem}) => {
     const dispatch=useDispatch();
-
     console.log(cartItem);
    
     
     return (
         <div className="cartino">
             <div className="cart-left">
-                <div className="img-container"> <img src={`./${product.img}.png`} alt="" /></div>
+                <div className="img-container"> <img src={`./${cartItem.img}.png`} alt="" /></div>
                   <button onClick={()=>dispatch(increaseCart(cartItem))}>-</button>
                   <div className="inner">
-                    <h4>{cartItem.quantity} X {product.name}</h4>
+                    <h4>{cartItem.quantity} X {cartItem.name}</h4>
                     <p>${cartItem.price * cartItem.quantity}</p>
                 </div>
               

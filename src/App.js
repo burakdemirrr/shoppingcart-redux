@@ -7,6 +7,7 @@ import {
 import Navbar from './Navbar';
 import Home from './Home';
 import Cart from './Cart';
+import SingleProduct from "./SingleProduct"
 
 import { ToastContainer, toast } from 'react-toastify';
   import 'react-toastify/dist/ReactToastify.css';
@@ -20,6 +21,7 @@ function App() {
           <Navbar/>
           <Routes>
             <Route path="/" element={<Home/>}/>
+            <Route path="/item/:id" element={<SingleProduct/>}/>
             <Route path="/cart" element={<Cart/>}/>
           </Routes>
         </BrowserRouter>  
